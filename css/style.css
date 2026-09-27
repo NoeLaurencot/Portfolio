@@ -10,6 +10,7 @@
     --navbar-color: #ffffff9a;
     --cursor: #ff00f250;
     --shadow: rgba(0, 0, 0, 0.3);
+    --underline-color: #e1e1e1;
 
     --nav-z: 1000;
     --circle-deco-z: 1100;
@@ -27,6 +28,7 @@
     --inverted-text-color: black;
     --navbar-color: #1a1a1add;
     --shadow: rgba(0, 0, 0, 0.6);
+    --underline-color: #1e1e1e;
 }
 
 body {
@@ -456,10 +458,11 @@ form textarea {
     background: none;
     height: 20svh;
     margin-top: 0.8rem;
-    padding: 0.5rem;
+    padding: 1rem;
+    border-radius: 15px;
     font-size: 1rem;
     color: var(--text-color);
-    border: solid 2px var(--secondary-bg-color);
+    border: solid 2px var(--underline-color);
     transition: border var(--fast-transition-time);
 }
 
@@ -471,7 +474,7 @@ form textarea:focus {
 form input {
     background: none;
     border: none;
-    border-bottom: solid 2px var(--secondary-bg-color);
+    border-bottom: solid 2px var(--underline-color);
     padding: 0.5rem;
     color: var(--text-color);
     font-size: 1rem;
