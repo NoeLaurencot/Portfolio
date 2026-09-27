@@ -4,79 +4,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
     <title>Portfolio</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/util.css">
     <link rel="stylesheet" href="../css/mobile.css">
 </head>
 
 <body>
     <nav id="navbar">
-        <div id="burger-button">
-            <span id="burger-bar-top"></span>
-            <span id="burger-bar-mid"></span>
-            <span id="burger-bar-bot"></span>
+        <div class="theme-wrapper">
+            <button class="no-selection" id="theme-toggle"></button>
         </div>
 
-        <div>
-            <button>Home</button>
-            <button>About</button>
-            <button>Projets</button>
-            <button>Contact</button>
+        <div class="nav-links">
+            <button class="scroll-button" data-target="#home">Home</button>
+            <button class="scroll-button" data-target="#about">About</button>
+            <button class="scroll-button" data-target="#skills">Skills</button>
+            <button class="scroll-button" data-target="#projects">Projects</button>
+            <button class="scroll-button" data-target="#contact">Contact</button>
         </div>
 
-        <div class="lang-container">
-            <a href="../portfolio.html">🇫🇷</a>
-            <a href="portfolio.html">🇬🇧</a>
+        <div class="lang-wrapper">
+            <a class="no-selection" href="../portfolio.html">🇫🇷</a>
         </div>
     </nav>
 
     <div id="body-main">
         <main>
             <div class="main-container">
-                <div class="home">
-                    <p>Hello, I'm</p>
+                <div id="home">
+                    <p>Hey, I am</p>
                     <h1>Noé Laurençot</h1>
-                    <h3>CS student</h3>
+                    <h3>Computer Science student</h3>
+
+                    <button class="down-arrow scroll-button" data-target="#about">
+                        <div class="top-arrow">
+                            <span class="top-arrow-left"></span>
+                            <span class="top-arrow-right"></span>
+                        </div>
+                        <div class="bottom-arrow">
+                            <span class="bottom-arrow-left"></span>
+                            <span class="bottom-arrow-right"></span>
+                        </div>
+                    </button>
                 </div>
 
-                <div class="about main-tile">
-
+                <div class="main-tile" id="about">
+                    <h2 class="tile-title">Who am I?</h2>
+                    <div class="main-tile-content">
+                        <img src="../assets/img/profile_picture.png" alt="Noé Laurençot's profile picture">
+                        <div>
+                            <h3>Noé Laurençot</h3>
+                            <p>Second-year Computer Science student - <span class="age-calc"></span> years old</p>
+                            <p>I am particularly interested in application development, website creation, and Linux
+                                systems.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="projets main-tile">
+                <button class="down-arrow scroll-button" data-target="#skills">
+                    <div class="top-arrow">
+                        <span class="top-arrow-left"></span>
+                        <span class="top-arrow-right"></span>
+                    </div>
+                    <div class="bottom-arrow">
+                        <span class="bottom-arrow-left"></span>
+                        <span class="bottom-arrow-right"></span>
+                    </div>
+                </button>
+
+                <div class="tile-spacer"></div>
+
+                <div class="main-tile" id="skills">
                     <div class="tile-title">
+                        <h2>My skill stack</h2>
+                    </div>
 
+                    <div class="skill-category">
+                        <h3 class="category-title">Languages</h3>
+                        <div class="skill-grid">
+                            <div class="skill-tile">
+                                <h4>Java</h4>
+                                <p>Pixel array manipulation, array comparison, and data structures.</p>
+                                <span class="project-tag">Brouillimg</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>Python</h4>
+                                <p>Graph algorithms and web backend.</p>
+                                <span class="project-tag">GraphMaze · Gaullois</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>HTML / CSS</h4>
+                                <p>Website structure and layout, and dynamic templates.</p>
+                                <span class="project-tag">Gaullois · Portfolio</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>JavaScript</h4>
+                                <p>Front-end interactions: navigation and scroll animations.</p>
+                                <span class="project-tag">Portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="category-title">Databases</h3>
+                        <div class="skill-grid">
+                            <div class="skill-tile">
+                                <h4>SQL</h4>
+                                <p>Relational schema design for an online store (products, orders, and users).</p>
+                                <span class="project-tag">Gaullois</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>Connectivity & security</h4>
+                                <p>Flask-to-database connectivity and authentication.</p>
+                                <span class="project-tag">Gaullois</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="category-title">Frameworks and libraries</h3>
+                        <div class="skill-grid">
+                            <div class="skill-tile">
+                                <h4>Flask</h4>
+                                <p>API and page rendering for a fictional store, with routes and sessions.</p>
+                                <span class="project-tag">Gaullois</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>NetworkX</h4>
+                                <p>Maze generation using minimum spanning trees and shortest-path searches with BFS.</p>
+                                <span class="project-tag">GraphMaze</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="category-title">Tools and systems</h3>
+                        <div class="skill-grid">
+                            <div class="skill-tile">
+                                <h4>Git / GitHub</h4>
+                                <p>Version control across all my projects, from solo work to group projects.</p>
+                                <span class="project-tag">All projects</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>Linux</h4>
+                                <p>My day to day development environment.</p>
+                                <span class="project-tag">Personal use</span>
+                            </div>
+                            <div class="skill-tile">
+                                <h4>Deployment</h4>
+                                <p>Deploying a Flask application on Render.</p>
+                                <span class="project-tag">Gaullois</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="down-arrow scroll-button" data-target="#projects">
+                    <div class="top-arrow">
+                        <span class="top-arrow-left"></span>
+                        <span class="top-arrow-right"></span>
+                    </div>
+                    <div class="bottom-arrow">
+                        <span class="bottom-arrow-left"></span>
+                        <span class="bottom-arrow-right"></span>
+                    </div>
+                </button>
+
+                <div class="tile-spacer"></div>
+
+                <div class="main-tile" id="projects">
+                    <div class="tile-title">
+                        <h2>My projects</h2>
                     </div>
                     <div class="hor-scroll-container">
                         <div class="inline-tile">
-
+                            <h3>Brouillimg</h3>
+                            <p>Java CLI program for scrambling and unscrambling images by permuting their rows with a
+                                15 bit key, and breaking that key without knowing it (Euclidean distance, Pearson
+                                correlation, variance, and neighbor similarity).</p>
+                            <p class="tags">Java · Image processing · Cryptanalysis</p>
+                            <a href="https://github.com/NoeLaurencot/Brouillimg">View on GitHub</a>
                         </div>
 
                         <div class="inline-tile">
-
+                            <h3>Gaullois</h3>
+                            <p>Fictional luxury clothing e-commerce store developed with Flask as a group project.
+                                Database management, password hashing, and deployment.</p>
+                            <p class="tags">Python · Flask · SQL</p>
+                            <a href="https://github.com/NoeLaurencot/Gaullois">View on GitHub</a>
+                            <a href="https://sae-ecommerce.onrender.com/">Visit the website</a>
                         </div>
 
                         <div class="inline-tile">
-
+                            <h3>GraphMaze</h3>
+                            <p>Maze generator based on graph theory: undirected graph representation, generation using
+                                a minimum spanning tree, and shortest-path searches with BFS.
+                            </p>
+                            <p class="tags">Python · NetworkX · Graph theory</p>
+                            <a href="https://github.com/NoeLaurencot/GraphMaze">View on GitHub</a>
+                            <a href="https://noelaurencot.github.io/GraphMaze/">Documentation</a>
                         </div>
 
                         <div class="inline-tile">
-
+                            <h3>Portfolio</h3>
+                            <p>My portfolio, the one you are currently viewing. I decided to make it as a static site
+                                to improve my HTML, CSS, and JavaScript skills.
+                            </p>
+                            <p class="tags">HTML · CSS · JavaScript</p>
+                            <a href="https://github.com/NoeLaurencot/Portfolio">View on GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact main-tile">
+                <button class="down-arrow scroll-button" data-target="#contact">
+                    <div class="top-arrow">
+                        <span class="top-arrow-left"></span>
+                        <span class="top-arrow-right"></span>
+                    </div>
+                    <div class="bottom-arrow">
+                        <span class="bottom-arrow-left"></span>
+                        <span class="bottom-arrow-right"></span>
+                    </div>
+                </button>
 
+                <div class="tile-spacer"></div>
+
+                <div class="main-tile" id="contact">
+                    <div>
+
+                    </div>
+                    <div>
+                        <form action="">
+                            <div class="form-horizontal">
+                                <div class="form-vertical">
+                                    <label for="form-name">First name</label>
+                                    <input id="form-name" type="text">
+                                </div>
+                                <div class="form-vertical">
+                                    <label for="form-surname">Last name</label>
+                                    <input id="form-surname" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-vertical">
+                                <label for="form-email">Email <span class="red-text">*</span></label>
+                                <input id="form-email" type="email">
+                            </div>
+
+                            <div class="form-vertical">
+                                <label for="form-text">Message</label>
+                                <textarea name="" id="form-text"></textarea>
+                            </div>
+
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
-
-        <footer>
-
-        </footer>
     </div>
-    <script src="script/navbar.js"></script>
+
+    <footer>
+    </footer>
+
+    <div id="circle-decoration-wrapper">
+        <span id="circle-decoration"></span>
+    </div>
+
+    <script src="../script/navbar.js"></script>
+    <script src="../script/bg-decoration.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="../script/scrolling-manager.js"></script>
+    <script src="../script/replace-date.js"></script>
+    <script src="../script/theme-manager.js"></script>
+    <script src="../script/click-manager.js"></script>
 </body>
 
 </html>
