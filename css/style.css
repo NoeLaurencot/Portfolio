@@ -12,12 +12,30 @@
     --shadow: rgba(0, 0, 0, 0.3);
     --underline-color: #e1e1e1;
 
+    /* z-index */
     --nav-z: 1000;
     --circle-deco-z: 1100;
+    --progress-bar-z: 900;
 
+    /* transitions */
     --fast-transition-time: 0.2s;
     --base-transition-time: 0.4s;
     --long-transition-time: 0.7s;
+
+    /* sizes */
+    --rem-xxs: 0.5rem;
+    --rem-xs: 0.8rem;
+    --rem-s: 1rem;
+    --rem-m: 1.5rem;
+    --rem-l: 2rem;
+    --rem-xl: 3rem;
+    --rem-xxl: 5rem;
+
+    --px-xxs: 1px;
+    --px-xs: 3px;
+    --px-s: 5px;
+    --px-m: 10px;
+    --px-l: 15px;
 }
 
 /* dark theme */
@@ -31,6 +49,10 @@
     --underline-color: #1e1e1e;
 }
 
+/* ############### */
+/* ### General ### */
+/* ############### */
+
 body {
     margin: 0;
     background: var(--secondary-bg-color);
@@ -39,10 +61,7 @@ body {
     transition: background-color var(--base-transition-time), color var(--base-transition-time);
 }
 
-#body-main {
-    padding: 3rem;
-}
-
+/* defaults */
 h1,
 h2,
 h3,
@@ -65,25 +84,28 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: var(--rem-l);
 }
 
+/* links and buttons */
 a {
     text-decoration: none;
     border: none;
     color: var(--text-color);
-    border-radius: 0.25rem;
-    padding: 0.4rem 1.2rem;
+    border-radius: var(--px-m);
+    font-size: var(--rem-s);
+    line-height: 1;
+    padding: var(--rem-xs) var(--rem-s);
     background: transparent;
     transition: var(--base-transition-time) background-color;
 }
 
 button {
     border: none;
-    border-radius: 0.25rem;
-    padding: 0.8rem 1.2rem;
+    border-radius: var(--px-m);
+    padding: var(--rem-xs) var(--rem-s);
     background: transparent;
-    font-size: 1rem;
+    font-size: var(--rem-s);
     color: var(--text-color);
     cursor: pointer;
     transition: var(--base-transition-time) background-color;
@@ -94,6 +116,100 @@ a:hover {
     background: var(--primary-color);
     color: rgb(from var(--text-color) calc(255 - r) calc(255 - g) calc(255 - b));
 }
+
+/* ############## */
+/* ### Layout ### */
+/* ############## */
+
+/* main containers */
+#body-main {
+    padding: var(--rem-xl);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--px-l);
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 90dvh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10dvh;
+}
+
+/* ################## */
+/* ### Navigation ### */
+/* ################## */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--navbar-color);
+    backdrop-filter: blur(5px);
+    margin: 0;
+    padding: var(--rem-l) var(--rem-xxl);
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0px 0px 20px var(--shadow);
+    transition: var(--long-transition-time) all;
+    z-index: var(--nav-z);
+}
+
+.nav-initials {
+    font-size: var(--rem-l);
+    color: var(--navbar-color);
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 1;
+    padding: var(--rem-xs);
+    border-radius: var(--px-l);
+    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 15px 1px var(--secondary-color);
+}
+
+.nav-links button {
+    font-size: var(--rem-s);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--rem-m);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--rem-s);
+}
+
+.nav-buttons button,
+.nav-buttons a {
+    display: inline-block;
+    line-height: 1;
+    border-radius: 2;
+    padding: var(--rem-s);
+}
+
+.nav-scrolled {
+    margin: var(--rem-l);
+    width: calc(100% - calc(2 * var(--rem-l)));
+    border-radius: var(--px-l);
+    padding: var(--rem-l) var(--rem-xl);
+}
+
+/* ########################### */
+/* ### Interactive details ### */
+/* ########################### */
 
 /* circle cursor */
 
@@ -132,66 +248,7 @@ a:hover {
     animation: clickCursor 0.5s ease-in-out;
 }
 
-/* nav */
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--navbar-color);
-    backdrop-filter: blur(5px);
-    margin: 0;
-    padding: 2rem 5rem;
-    position: fixed;
-    box-sizing: border-box;
-    width: 100%;
-    box-shadow: 0px 0px 20px var(--shadow);
-    transition: var(--long-transition-time) all;
-    z-index: var(--nav-z);
-}
-
-.nav-links button {
-    font-size: 1.3rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-buttons {
-    display: flex;
-    align-items: center;
-}
-
-.nav-scrolled {
-    margin: 2rem 2rem;
-    width: calc(100% - 4rem);
-    border-radius: 10px;
-    padding: 2rem 3rem;
-}
-
-/* body */
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-#home {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    width: 100%;
-    height: 90dvh;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10dvh;
-}
-
-/* Scroll arrow */
+/* scroll arrows */
 
 @keyframes idleBounceBottom {
 
@@ -235,8 +292,8 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem;
-    gap: 0.5rem;
+    margin: var(--rem-l);
+    gap: var(--rem-xs);
     background: none;
     border: none;
 }
@@ -261,7 +318,7 @@ nav {
 
 .top-arrow-left,
 .top-arrow-right {
-    width: 1rem;
+    width: var(--rem-s);
     height: 0.2rem;
     background-color: var(--primary-color);
     transition: var(--base-transition-time);
@@ -288,7 +345,7 @@ nav {
 
 .bottom-arrow-left,
 .bottom-arrow-right {
-    width: 1rem;
+    width: var(--rem-s);
     height: 0.2rem;
     background-color: var(--primary-color);
     transition: var(--base-transition-time);
@@ -306,166 +363,191 @@ nav {
     border-radius: 0 5px 5px 0;
 }
 
-/* spacers */
+/* spacer */
 
 .tile-spacer {
     margin: 10dvh 0;
 }
 
-/* tiles */
+/* progress bar */
 
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: var(--px-s);
+    background-color: var(--accent-color);
+    z-index: var(--progress-bar-z);
+    transition: border-radius var(--fast-transition-time);
+    will-change: width;
+}
+
+/* background particles */
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* ############### */
+/* ### Content ### */
+/* ############### */
+
+/* main tiles */
 .main-tile {
-    border-radius: 15px;
+    border-radius: var(--px-l);
     box-shadow: 0px 0px 10px var(--shadow);
-    padding: 2rem 3rem;
+    padding: var(--rem-l) var(--rem-xl);
     box-sizing: border-box;
     width: 100%;
     background-color: var(--primary-bg-color);
 }
 
 .main-tile-content {
-    margin-top: 1.5rem;
+    margin-top: var(--rem-m);
     display: flex;
-    gap: 1.5rem;
+    gap: var(--rem-m);
 }
 
 .main-tile-content>div {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: var(--rem-xs);
 }
 
 #about img {
-    height: 30dvh;
-    border-radius: 15px;
+    height: clamp(10dvh, 25rem, 80dvh);
+    border-radius: var(--px-l);
 }
 
 .hor-scroll-container {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: var(--rem-s);
+    margin-top: var(--rem-s);
     overflow-x: auto;
-    padding: 0.7rem;
+    padding: var(--rem-xs);
 }
 
 .hor-scroll-container::-webkit-scrollbar {
-    height: 6px;
+    height: var(--px-s);
 }
 
 .hor-scroll-container::-webkit-scrollbar-thumb {
     background: var(--primary-color);
-    border-radius: 10px;
+    border-radius: var(--px-m);
 }
 
+/* project tiles */
 .inline-tile {
     flex: 0 0 280px;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    padding: 1.5rem;
-    border-radius: 10px;
+    gap: var(--rem-xs);
+    padding: var(--rem-l);
+    border-radius: var(--px-l);
     box-shadow: 0 0 10px var(--shadow);
     background: var(--secondary-bg-color);
 }
 
 .inline-tile h3 {
-    font-size: 1.2rem;
+    font-size: var(--rem-m);
 }
 
 .inline-tile p {
-    font-size: 0.9rem;
+    font-size: var(--rem-s);
     line-height: 1.4;
     color: var(--text-color);
 }
 
 .inline-tile .tags {
-    font-size: 0.75rem;
+    font-size: var(--rem-xs);
     color: var(--accent-color);
     opacity: 85%;
 }
 
 .inline-tile .tile-links {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--rem-xs);
     flex-wrap: wrap;
     margin-top: auto;
 }
 
 .inline-tile a {
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
+    padding: var(--rem-xxs) var(--rem-s);
+    font-size: var(--rem-xs);
 }
 
+/* skill tiles */
 .skill-category {
-    margin-top: 1.8rem;
+    margin-top: var(--rem-m);
 }
 
 .skill-category:first-of-type {
-    margin-top: 0.8rem;
+    margin-top: var(--rem-xs);
 }
 
 .category-title {
-    margin-bottom: 1rem;
+    margin-bottom: var(--rem-s);
 }
 
 .skill-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--rem-s);
 }
 
 .skill-tile {
     flex: 0 1 170px;
-    min-height: 130px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.4rem;
-    border-radius: 12px;
+    gap: var(--rem-xs);
+    padding: var(--rem-m);
+    border-radius: var(--px-l);
     box-shadow: 0 0 10px var(--shadow);
     background: var(--secondary-bg-color);
 }
 
 .skill-tile h4 {
     color: var(--secondary-color);
-    font-size: 1rem;
+    font-size: var(--rem-s);
     margin: 0;
 }
 
 .skill-tile p {
-    font-size: 0.8rem;
-    line-height: 1.35;
+    font-size: var(--rem-xs);
+    line-height: 1.4;
     color: var(--text-color);
-    opacity: 0.9;
 }
 
 .project-tag {
     margin-top: auto;
-    font-size: 0.7rem;
+    font-size: var(--rem-xs);
     color: var(--accent-color);
     border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    padding: 0.3rem 1rem;
+    border-radius: var(--px-s);
+    padding: 0.3rem var(--rem-s);
     width: fit-content;
 }
 
-/* contact - form */
-
+/* contact form */
 #contact form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--rem-s);
 }
 
 form textarea {
     resize: vertical;
     background: none;
     height: 20svh;
-    margin-top: 0.8rem;
-    padding: 1rem;
-    border-radius: 15px;
-    font-size: 1rem;
+    margin-top: var(--rem-xs);
+    padding: var(--rem-s);
+    border-radius: var(--px-l);
+    font-size: var(--rem-s);
     color: var(--text-color);
     border: solid 2px var(--underline-color);
     transition: border var(--fast-transition-time);
@@ -480,9 +562,9 @@ form input {
     background: none;
     border: none;
     border-bottom: solid 2px var(--underline-color);
-    padding: 0.5rem;
+    padding: var(--rem-xs);
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: var(--rem-s);
     transition: border var(--fast-transition-time);
 }
 
@@ -500,5 +582,5 @@ form input:focus {
 .form-horizontal {
     display: flex;
     width: 100%;
-    gap: 1.5rem;
+    gap: var(--rem-m);
 }
