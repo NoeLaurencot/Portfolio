@@ -1,6 +1,6 @@
 const themeToggleBtn = document.getElementById("theme-toggle");
 
-let curTheme = localStorage.getItem("theme") || "light";
+let curTheme = localStorage.getItem("theme") || "dark";
 
 themeToggleBtn.innerHTML = getThemeIcon()
 
