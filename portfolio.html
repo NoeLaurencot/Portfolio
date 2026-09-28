@@ -17,9 +17,7 @@
 
 <body>
     <nav id="navbar">
-        <div class="theme-wrapper">
-            <button class="no-selection" id="theme-toggle"></button>
-        </div>
+        <div>NL</div>
 
         <div class="nav-links">
             <button class="scroll-button" data-target="#home">Accueil</button>
@@ -29,8 +27,14 @@
             <button class="scroll-button" data-target="#contact">Contact</button>
         </div>
 
-        <div class="lang-wrapper">
-            <a class="no-selection" href="en/portfolio.html">🇬🇧</a>
+        <div class="nav-buttons">
+            <div class="theme-wrapper">
+                <button class="no-selection" id="theme-toggle"></button>
+            </div>
+
+            <div class="lang-wrapper">
+                <a class="no-selection" href="en/portfolio.html">🇬🇧</a>
+            </div>
         </div>
     </nav>
 
@@ -63,6 +67,64 @@
                             <p>Étudiant en BUT2 informatique - <span class="age-calc"></span> ans</p>
                             <p>Je m'intéresse particulièrement au dévloppement d'application, à la réalisation de sites
                                 web, ainsi qu'aux systèmes Linux</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="down-arrow scroll-button" data-target="#projects">
+                    <div class="top-arrow">
+                        <span class="top-arrow-left"></span>
+                        <span class="top-arrow-right"></span>
+                    </div>
+                    <div class="bottom-arrow">
+                        <span class="bottom-arrow-left"></span>
+                        <span class="bottom-arrow-right"></span>
+                    </div>
+                </button>
+
+                <div class="tile-spacer"></div>
+
+                <div class="main-tile" id="projects">
+                    <div class="tile-title">
+                        <h2>Mes projets</h2>
+                    </div>
+                    <div class="hor-scroll-container">
+                        <div class="inline-tile">
+                            <h3>Brouillimg</h3>
+                            <p>Programme Java en CLI pour brouiller/débrouiller des images en permutant leurs lignes via
+                                une
+                                clé à 15 bits, et casser cette clé sans la connaître (distance euclidienne, corrélation
+                                de Pearson, variance, similarité voisine).</p>
+                            <p class="tags">Java · Traitement d'image · Cryptanalyse</p>
+                            <a href="https://github.com/NoeLaurencot/Brouillimg">Voir sur GitHub</a>
+                        </div>
+
+                        <div class="inline-tile">
+                            <h3>Gaullois</h3>
+                            <p>Boutique E-commerce fictive de vêtements de luxe développée avec Flask, projet de groupe.
+                                Gestion base de données, hashing des mots de passe, déploiement.</p>
+                            <p class="tags">Python · Flask · SQL</p>
+                            <a href="https://github.com/NoeLaurencot/Gaullois">Voir sur GitHub</a>
+                            <a href="https://sae-ecommerce.onrender.com/">Voir le site</a>
+                        </div>
+
+                        <div class="inline-tile">
+                            <h3>GraphMaze</h3>
+                            <p>Générateur de labyrinthes basé sur la théorie des graphes : représentation en graphe non
+                                orienté, génération par arbre couvrant minimal, recherche du plus court chemin par BFS.
+                            </p>
+                            <p class="tags">Python · NetworkX · Théorie des graphes</p>
+                            <a href="https://github.com/NoeLaurencot/GraphMaze">Voir sur GitHub</a>
+                            <a href="https://noelaurencot.github.io/GraphMaze/">Documentation</a>
+                        </div>
+
+                        <div class="inline-tile">
+                            <h3>Portfolio</h3>
+                            <p>Mon portfolio, celui sur lequel vous êtes actuellement. J'ai decidé de la faire en
+                                statique pour améliorer mes compétences en HTML, CSS et JavaScript.
+                            </p>
+                            <p class="tags">HTML · CSS · JavaScript</p>
+                            <a href="https://github.com/NoeLaurencot/Portfolio">Voir sur GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -166,64 +228,6 @@
                     </div>
                 </div>
 
-                <button class="down-arrow scroll-button" data-target="#projects">
-                    <div class="top-arrow">
-                        <span class="top-arrow-left"></span>
-                        <span class="top-arrow-right"></span>
-                    </div>
-                    <div class="bottom-arrow">
-                        <span class="bottom-arrow-left"></span>
-                        <span class="bottom-arrow-right"></span>
-                    </div>
-                </button>
-
-                <div class="tile-spacer"></div>
-
-                <div class="main-tile" id="projects">
-                    <div class="tile-title">
-                        <h2>Mes projets</h2>
-                    </div>
-                    <div class="hor-scroll-container">
-                        <div class="inline-tile">
-                            <h3>Brouillimg</h3>
-                            <p>Programme Java en CLI pour brouiller/débrouiller des images en permutant leurs lignes via
-                                une
-                                clé à 15 bits, et casser cette clé sans la connaître (distance euclidienne, corrélation
-                                de Pearson, variance, similarité voisine).</p>
-                            <p class="tags">Java · Traitement d'image · Cryptanalyse</p>
-                            <a href="https://github.com/NoeLaurencot/Brouillimg">Voir sur GitHub</a>
-                        </div>
-
-                        <div class="inline-tile">
-                            <h3>Gaullois</h3>
-                            <p>Boutique E-commerce fictive de vêtements de luxe développée avec Flask, projet de groupe.
-                                Gestion base de données, hashing des mots de passe, déploiement.</p>
-                            <p class="tags">Python · Flask · SQL</p>
-                            <a href="https://github.com/NoeLaurencot/Gaullois">Voir sur GitHub</a>
-                            <a href="https://sae-ecommerce.onrender.com/">Voir le site</a>
-                        </div>
-
-                        <div class="inline-tile">
-                            <h3>GraphMaze</h3>
-                            <p>Générateur de labyrinthes basé sur la théorie des graphes : représentation en graphe non
-                                orienté, génération par arbre couvrant minimal, recherche du plus court chemin par BFS.
-                            </p>
-                            <p class="tags">Python · NetworkX · Théorie des graphes</p>
-                            <a href="https://github.com/NoeLaurencot/GraphMaze">Voir sur GitHub</a>
-                            <a href="https://noelaurencot.github.io/GraphMaze/">Documentation</a>
-                        </div>
-
-                        <div class="inline-tile">
-                            <h3>Portfolio</h3>
-                            <p>Mon portfolio, celui sur lequel vous êtes actuellement. J'ai decidé de la faire en
-                                statique pour améliorer mes compétences en HTML, CSS et JavaScript.
-                            </p>
-                            <p class="tags">HTML · CSS · JavaScript</p>
-                            <a href="https://github.com/NoeLaurencot/Portfolio">Voir sur GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
                 <button class="down-arrow scroll-button" data-target="#contact">
                     <div class="top-arrow">
                         <span class="top-arrow-left"></span>
@@ -271,9 +275,6 @@
             </div>
         </main>
     </div>
-
-    <footer>
-    </footer>
 
     <div id="circle-decoration-wrapper">
         <span id="circle-decoration"></span>

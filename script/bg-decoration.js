@@ -5,7 +5,7 @@ let circlePaddingStr = circleStyle.getPropertyValue("padding");
 let circlePadding = parseInt(circlePaddingStr);
 
 let interacted = false;
-const TRANSFORM_DUR = 150;
+const TRANSFORM_DUR = 100;
 
 document.addEventListener('mousemove', function (e) {
   if (interacted == false) {

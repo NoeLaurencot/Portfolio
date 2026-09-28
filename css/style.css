@@ -159,6 +159,11 @@ nav {
     gap: 1.5rem;
 }
 
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
 .nav-scrolled {
     margin: 2rem 2rem;
     width: calc(100% - 4rem);
@@ -445,7 +450,7 @@ nav {
     width: fit-content;
 }
 
-/* contact / form */
+/* contact - form */
 
 #contact form {
     display: flex;
@@ -496,11 +501,4 @@ form input:focus {
     display: flex;
     width: 100%;
     gap: 1.5rem;
-}
-
-/* footer */
-
-footer {
-    height: 20dvh;
-    background-color: var(--secondary-color);
 }
